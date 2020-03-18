@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Header from './components/Header';
-import {uuid} from 'uuidv4';
+import ListItem from './components/ListItem';
+import uuid from 'uuid-random';
+//import {uuid} from 'uuidv4';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -13,7 +15,10 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <FlatList data={items} renderItem={()} />
+      <FlatList
+        data={items}
+        renderItem={({item}) => <ListItem item={item} />}
+      />
     </View>
   );
 };
